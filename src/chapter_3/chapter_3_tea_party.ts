@@ -20,7 +20,14 @@ type Table = {
 
 function setTheTable(): Table {
 	// 👉 FIXME ❌
-	return { seats: [] };
+	const adequateSetting: Array<Seat> = [];
+
+	for(let i=0; i < 3; i++){
+		const nextDrink: Drink = {type: 'Tea', poured: true};
+		const nextSeat: Seat = {drink: nextDrink};
+		adequateSetting.push(nextSeat);
+	}
+	return { seats: adequateSetting };
 }
 
 export function attendATeaParty() {

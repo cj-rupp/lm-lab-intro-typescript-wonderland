@@ -16,8 +16,9 @@ export function meetTheQueen(): void {
 
 	let guilty: boolean = false;
 
-	let witnesses: Witness[] = []; // 👉 FIXME ❌ - call getWitnesses here
 
+	let witnesses: Witness[] = getWitnesses(); // 👉 FIXME ❌ - call getWitnesses here
+ 
 	if (!witnesses || witnesses.length === 0) {
 		print(`No witnesses have come forward to defend you.`);
 		guilty = true;
@@ -46,6 +47,28 @@ export function meetTheQueen(): void {
 }
 
 // 👉 FIXME ❌ - this function needs writing to meet the above criteria
-function getWitnesses(): any {
-	return [];
+
+const acquit = () => VERDICTS[1];
+
+const authenticNames: Array<string> = [	
+	"The White Rabbit",
+	"Pat",
+	"Bill the Lizard",
+	"The Caterpillar",
+	"The Duchess",
+	"The Hatter",
+	"The March Hare",
+	"The Dormouse$",
+	"The Gryphon",
+	"The Mock Turtle",
+	"Tweedledum",
+	"Tweedledee"
+];
+
+function getWitnesses(): Array<Witness> {
+	return authenticNames.map((monniker:string) => {
+		return { name: monniker,
+				giveEvidence: acquit}
+		}
+	);
 }
